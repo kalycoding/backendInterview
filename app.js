@@ -1,11 +1,11 @@
 const bodyParser = require('body-parser')
 const port = 8080
-const { shipping, app } = require('./routes/shipping')
+const { router, app } = require('./routes/shipping')
 
 
 
 app.use(bodyParser.json());
-app.use('/shipping', shipping)
+app.use('/shipping', router)
 
     
 app.listen(port, function(){

@@ -1,6 +1,8 @@
+require('dotenv').config()
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
 const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
-const serviceAccount = require('../munchy-f94d6-a8c4842a0e70.json');
+const PATH_GOOGLE_SERVICE_ACCOUNT_KEYS = '../munchy-f94d6-a8c4842a0e70.json'
+const serviceAccount = require(PATH_GOOGLE_SERVICE_ACCOUNT_KEYS); //path to google cloud account keys
 
 initializeApp({
   credential: cert(serviceAccount)
@@ -10,8 +12,10 @@ const db = getFirestore();
 
 async function testFirebase(){
    try {
-        const snapshot = await db.collection('test').get()
-        console.log("Google fire-store Connected Successfully")
+        const snapshot = await db.collection('test').doc('test').set({data:'Test'})
+        if (snapshot){
+            console.log('Google fire-store Connected Successfully😀')
+        }
    } catch (error) {
         console.log('Google fire-store Connection Failed, Please Check your settings')
    }

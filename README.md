@@ -16,7 +16,7 @@ This project requires the following modules/libraries, the project is running on
 2. ```cd sellerNg/```.
 3. Install using the following the command
    ```npm install```
-4. The postman collection can be found in the project root directory with the name , open postman and import the collection ```Seller.NG.postman_collection.json```. Open postman and import it for easy testing.
+4. The postman collection can be found in the project root directory with the name ```Seller.NG.postman_collection.json```. Open postman and import it for easy testing.
 
 
 

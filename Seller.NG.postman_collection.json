@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "81a8d903-514a-42ed-b8d3-819f003f1db2",
+		"name": "Seller.NG",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Shipments",
+			"item": [
+				{
+					"name": "Create Shipments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"origin_address\": {\n        \"line_1\": \"Lagos\",\n        \"line_2\": \"Unit 401\",\n        \"state\": \"NY\",\n        \"city\": \"Sydney\",\n        \"postal_code\": \"11201\",\n        \"country_alpha2\": \"US\",\n        \"contact_name\": \"Kalycodes\",\n        \"company_name\": \"Mandy's Watches\",\n        \"contact_phone\": \"+1396380000\",\n        \"contact_email\": \"mandy@morrison.com\"\n    },\n    \"sender_address\": {\n        \"line_1\": \"55 Prospect St\",\n        \"line_2\": \"Unit 401\",\n        \"state\": \"NY\",\n        \"city\": \"Sydney\",\n        \"postal_code\": \"11201\",\n        \"country_alpha2\": \"US\",\n        \"contact_name\": \"Mandy Morrison\",\n        \"company_name\": \"Mandy's Watches\",\n        \"contact_phone\": \"+1396380000\",\n        \"contact_email\": \"mandy@morrison.com\"\n    },\n    \"return_address\": {\n        \"line_1\": \"55 Prospect St\",\n        \"line_2\": \"Unit 401\",\n        \"state\": \"NY\",\n        \"city\": \"Sydney\",\n        \"postal_code\": \"11201\",\n        \"country_alpha2\": \"US\",\n        \"contact_name\": \"Mandy Morrison\",\n        \"company_name\": \"Mandy's Watches\",\n        \"contact_phone\": \"+1396380000\",\n        \"contact_email\": \"mandy@morrison.com\"\n    },\n    \"destination_address\": {\n        \"line_1\": \"1 quai de Jemmapes\",\n        \"line_2\": \"Porte A\",\n        \"state\": \"CA\",\n        \"city\": \"Paris\",\n        \"postal_code\": \"75010\",\n        \"country_alpha2\": \"FR\",\n        \"contact_name\": \"Sonny Bill\",\n        \"company_name\": null,\n        \"contact_phone\": \"+336638000\",\n        \"contact_email\": \"sonny@bill.com\"\n    },\n    \"metadata\": {},\n    \"set_as_residential\": false,\n    \"consignee_tax_id\": null,\n    \"eei_reference\": null,\n    \"incoterms\": \"DDU\",\n    \"insurance\": {\n        \"is_insured\": false,\n        \"insured_amount\": 10,\n        \"insured_currency\": \"USD\"\n    },\n    \"order_data\": {\n        \"platform_name\": null,\n        \"platform_order_number\": null,\n        \"order_tag_list\": [\n            \"VIP\"\n        ],\n        \"seller_notes\": null,\n        \"buyer_notes\": null\n    },\n    \"courier_selection\": {\n        \"selected_courier_id\": \"3da5e847-c889-46c2-aaac-ec6d6f70f5c0\",\n        \"allow_courier_fallback\": false,\n        \"apply_shipping_rules\": true\n    },\n    \"shipping_settings\": {\n        \"units\": {\n            \"weight\": \"lb\",\n            \"dimensions\": \"in\"\n        },\n        \"printing_options\": {\n            \"format\": \"pdf\",\n            \"label\": \"4x6\",\n            \"commercial_invoice\": \"A4\",\n            \"packing_slip\": \"none\"\n        },\n        \"buy_label\": false,\n        \"buy_label_synchronous\": false\n    },\n    \"parcels\": [\n        {\n            \"total_actual_weight\": 0.8,\n            \"box\": {\n                \"slug\": null,\n                \"length\": 10,\n                \"width\": 8,\n                \"height\": 5\n            },\n            \"items\": [\n                {\n                    \"description\": \"Silk dress\",\n                    \"category\": \"fashion\",\n                    \"sku\": \"test01\",\n                    \"quantity\": 2,\n                    \"dimensions\": {\n                        \"length\": null,\n                        \"width\": null,\n                        \"height\": null\n                    },\n                    \"actual_weight\": 10,\n                    \"declared_currency\": \"USD\",\n                    \"declared_customs_value\": 20\n                }\n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shipping/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shipping",
+								""
+							]
+						},
+						"description": "Endpoint for creating shipments"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Shipments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shipping/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shipping",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single Shipment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a shipment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shipping/ESUS10087738",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shipping",
+								"ESUS10087738"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Shipment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sand_YRGu1zdSFFuGcpt6onyGLLWOFwKMVzwB6QkGBpMd35o=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"shipments\": [\n    {\n      \"easyship_shipment_id\": \"ESUS10087735\",\n      \"courier_id\": \"3da5e847-c889-46c2-aaac-ec6d6f70f5c0\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shipping/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shipping",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Paid Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Single Paid Shipment Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All shipments",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shipping",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shipping"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Rates",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"origin_address\": {\n        \"line_1\": \"55 Prospect St\",\n        \"line_2\": \"Unit 401\",\n        \"state\": \"NY\",\n        \"city\": \"Sydney\",\n        \"postal_code\": \"11201\",\n        \"country_alpha2\": \"US\"\n    },\n    \"destination_address\": {\n        \"line_1\": \"1 quai de Jemmapes\",\n        \"line_2\": \"Porte A\",\n        \"state\": \"CA\",\n        \"city\": \"Paris\",\n        \"postal_code\": \"75010\",\n        \"country_alpha2\": \"FR\"\n    },\n    \"incoterms\": \"DDU\",\n    \"insurance\": {\n        \"is_insured\": false,\n        \"insured_amount\": 10,\n        \"insured_currency\": \"USD\"\n    },\n    \"courier_selection\": {\n        \"apply_shipping_rules\": true\n    },\n    \"shipping_settings\": {\n        \"units\": {\n            \"weight\": \"lb\",\n            \"dimensions\": \"in\"\n        },\n        \"output_currency\": \"HKD\"\n    },\n    \"parcels\": [\n        {\n            \"total_actual_weight\": 0.8,\n            \"box\": {\n                \"slug\": null,\n                \"length\": 10,\n                \"width\": 8,\n                \"height\": 5\n            },\n            \"items\": [\n                {\n                    \"description\": \"Silk dress\",\n                    \"category\": \"fashion\",\n                    \"sku\": \"test01\",\n                    \"quantity\": 2,\n                    \"dimensions\": {\n                        \"length\": null,\n                        \"width\": null,\n                        \"height\": null\n                    },\n                    \"actual_weight\": 10,\n                    \"declared_currency\": \"USD\",\n                    \"declared_customs_value\": 20\n                }\n            ]\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/shipping/quotes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shipping",
+						"quotes"
+					]
+				},
+				"description": "Get Shipping Rates\n"
+			},
+			"response": []
+		}
+	]
+}

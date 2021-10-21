@@ -12,11 +12,11 @@ This project requires the following modules/libraries, the project is running on
 ## Installation
 
 
-1. Clone the repository. - [SellerNg Repo](https://github.com/kalycoding/sellerNg.git)
+1. Clone the repository. - ```git clone https://github.com/kalycoding/sellerNg.git```
 2. ```cd sellerNg/```.
 3. Install using the following the command
    ```npm install```
-4. Here's the link for the postman collection i used for testing [SellerNG Shipment Postman Collection](https://www.getpostman.com/collections/64d291ba7d42533fcc82)
+4. Here's the link for the postman collection i used for testing [SellerNG Shipment Postman Collection](https://www.getpostman.com/collections/64d291ba7d42533fcc82), open postman and import the collection
 
 
 

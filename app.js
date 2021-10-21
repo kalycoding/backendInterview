@@ -12,7 +12,7 @@ const swaggerJson = require('./swagger.json')
 const swaggerOptions = {  
     swaggerDefinition:
     swaggerJson,
-    apis:['./routes/shipping.js'],  
+    apis:['./routes/shipping.js','./routes/orders.js', './routes/rates.js'],  
 }  
 const swaggerDocs = swaggerJSDoc(swaggerOptions);  
 

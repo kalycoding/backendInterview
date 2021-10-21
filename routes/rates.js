@@ -12,7 +12,7 @@ const AUTH_KEY = process.env.AUTH_KEY
 /*
 Retrieve shipments rate from easyship.com
 */
-router.get('/', async function (req, res) {
+router.post('/', async function (req, res) {
     data = req.body
     axios.post(`${BASE_URL}/rates`, data=data, {
         headers: {

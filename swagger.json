@@ -11,27 +11,7 @@
     "host": "",
     "basePath": "/",
     "paths": {
-        "/rates": {
-            "get": {
-                "tags": [
-                    "Rates"
-                ],
-                "description": "Get Shipment Rates from easyship.com",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    }
-                }
-            }
-        },
         "/shipping": {
-            
             "get": {
                 "tags": [
                     "Shipping"
@@ -219,10 +199,191 @@
                     }
                 }
             }
+        },
+        "/rates": {
+            "post": {
+                "tags": [
+                    "Payment"
+                ],
+                "description": "Create a new Shipments from easyship.com and store the data to firestore",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "required": true,
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Payload for Getting Rates for shipment",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Rates"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "201": {
+                        "description": "Success"
+                    }
+                }
+            }
         }
     },
     "definitions":
     {
+        "Rates":{
+            "type":"object",
+            "properties":{
+                "origin_address": {
+                    "type": "object",
+                    "properties":{
+                     "line_1":{
+                         "type":"string"
+                     },
+                     "line_2":{
+                     "type":"string"
+                     }, 
+                     "state":{
+                         "type":"string"
+                     },
+                     "city":{
+                         "type":"string"
+                     },
+                     "postal_code":{
+                         "type":"string"
+                     },
+                     "country_alpha2":{
+                         "type":"string"
+                     },
+                     "contact_name":{
+                         "type":"string"
+                     }, 
+                     "company_name":{
+                         "type":"string"
+                     },
+                     "contact_phone":{
+                         "type":"string"
+                     },
+                     "contact_email":{
+                         "type":"string"
+                     }
+                    }
+                },
+                "destination_address": {
+                    "type": "object",
+                    "properties":{
+                        "line_1":{
+                            "type":"string"
+                        },
+                        "line_2":{
+                        "type":"string"
+                        }, 
+                        "state":{
+                            "type":"string"
+                        },
+                        "city":{
+                            "type":"string"
+                        },
+                        "postal_code":{
+                            "type":"string"
+                        },
+                        "country_alpha2":{
+                            "type":"string"
+                        },
+                        "contact_name":{
+                            "type":"string"
+                        }, 
+                        "company_name":{
+                            "type":"string"
+                        },
+                        "contact_phone":{
+                            "type":"string"
+                        },
+                        "contact_email":{
+                            "type":"string"
+                        }
+                    }
+                },
+                "parcels":{
+                    "type":"array",
+                    "items":{
+                        "type":"object",
+                        "properties":{
+                            "total_actual_weight":{
+                                "type":"number"
+                            },
+                            "box":{
+                                "type":"object",
+                                "properties":{
+                                   "slug":{
+                                       "type":null
+
+                                   },
+                                   "length":{
+                                    "type":"number"
+                                   },
+                                   "width":{
+                                    "type":"number"
+                                    },
+                                    "height":{
+                                        "type":"number"
+                                    }
+                                }
+                            },
+                            "items":{
+                                "type":"array",
+                                "items":{
+                                    "type":"object",
+                                    "properties":{
+                                        "description":{
+                                            "type":"string"
+                                        },
+                                        "category":{
+                                            "type":"string"
+                                        },
+                                        "sku":{
+                                            "type":"string"
+                                        },
+                                        "quantity":{
+                                            "type":"number"
+                                        },
+                                        "dimensions":{
+                                            "type":"object",
+                                            "properties":{
+                                                "length":{
+                                                    "type":"number"
+                                                   },
+                                                   "width":{
+                                                    "type":"number"
+                                                    },
+                                                    "height":{
+                                                        "type":"number"
+                                                    }
+                                            }
+                                        },
+                                        "actual_weight":{
+                                            "type":"number"
+                                        },
+                                        "declared_currency":{
+                                            "type":"string"
+                                        },
+                                        "declared_customs_value":{
+                                            "type":"number"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "Payments":{
                 "type":"object",
                 "properties":{

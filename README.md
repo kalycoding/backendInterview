@@ -2,9 +2,9 @@
 
 ## Requirements
 
-This project requires the following modules/libraries
+This project requires the following modules/libraries, the project is running on expressjs, google fire-store 
 
-* [`Node Js`](https://www.docker.com/get-started)
+* [`Node Js`](https://nodejs.com)
 * Google Cloud Service Account Key, it can be obtained from [`Google Cloud Platform`], download the key.json file and place it the project root directory
 * Im using [easyship`](https://easyship.com/) for my shipping API. They have good documentation services
 
@@ -12,8 +12,8 @@ This project requires the following modules/libraries
 ## Installation
 
 
-1. Clone the repository. - git clone git@github.com:niyioyelade/bokia-dmu.git
-2. ```cd projects/seller-shipment/```.
+1. Clone the repository. - ```[git clone git@github.com:niyioyelade/bokia-dmu.git](https://github.com/kalycoding/sellerNg.git)```
+2. ```cd sellerNg/```.
 3. Install using the following the command
    ```npm install```
 
@@ -21,7 +21,7 @@ This project requires the following modules/libraries
 
 * To start the server
 
-```nodemon```
+use the following command```nodemon```
 
 * It runs on localhost port 8081, you can change the port by editing line 2 of ```app.js``` file
 

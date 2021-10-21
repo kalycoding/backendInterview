@@ -16,7 +16,7 @@ This project requires the following modules/libraries, the project is running on
 2. ```cd sellerNg/```.
 3. Install using the following the command
    ```npm install```
-4. Here's the link for the postman collection i used for testing [SellerNG Shipment Postman Collection](https://www.getpostman.com/collections/64d291ba7d42533fcc82), open postman and import the collection
+4. The postman collection can be found in the project root directory with the name , open postman and import the collection ```Seller.NG.postman_collection.json```. Open postman and import it for easy testing.
 
 
 
@@ -27,3 +27,5 @@ use the following command```nodemon```
 * It runs on localhost port 8081, you can change the port by editing line 2 of ```app.js``` file
 
 * Swagger URL is ```(http://localhost:8081/api-docs/#/)```
+
+Thanks 😅

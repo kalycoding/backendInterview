@@ -203,7 +203,7 @@
         "/rates": {
             "post": {
                 "tags": [
-                    "Payment"
+                    "Shipment Rates"
                 ],
                 "description": "Create a new Shipments from easyship.com and store the data to firestore",
                 "consumes": [

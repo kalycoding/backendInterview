@@ -10,7 +10,7 @@ require('dotenv').config()
 const BASE_URL_V1 = process.env.BASE_URL_V1
 const AUTH_KEY = process.env.AUTH_KEY
 
-
+/* Pay for shipment using the created shipment stored in google firestore */
 router.post('/', async function(req,res){
     data = req.body
     const paymentId = await db.collection('paymentorders').doc(req.body.shipments[0].easyship_shipment_id).get()

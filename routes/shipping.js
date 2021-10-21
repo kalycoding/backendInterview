@@ -9,9 +9,12 @@ const {db, testFirebase} = require('../controllers/firebase')
 testFirebase();
 
 const BASE_URL = process.env.BASE_URL
+const BASE_URL_V1 = process.env.BASE_URL
 const AUTH_KEY = process.env.AUTH_KEY
 
-//Get Quotes with Shipping Companies
+/*
+Retrieve shipments rate from easyship.com
+*/
 router.post('/quotes', async function (req, res) {
     data = req.body
     axios.post(`${BASE_URL}/rates`, data=data, {
@@ -32,7 +35,9 @@ router.post('/quotes', async function (req, res) {
     })
 })
 
-//Create Shipment (Shipment is unpaid order)
+/*Create Shipment (Shipment is unpaid order)
+it saved the shipment data to firestore
+*/
 router.post('/', async function(req,res){
     data = req.body
     axios.post(`${BASE_URL}/shipments`, data, {
@@ -56,7 +61,9 @@ router.post('/', async function(req,res){
     })
 })
 
-//Get all shipments
+/*
+Retrieve all shipments data from google firestore
+*/
 router.get('/', async function(req,res){
     let allShipmentsArray = []
     const allShipments = await db.collection('shipments').get();
@@ -68,7 +75,9 @@ router.get('/', async function(req,res){
         .json(allShipmentsArray)
 })
 
-// Get a single Shipment
+/*
+Retrieve a single shipment data from google firestore
+*/
 router.get('/:shipmentId', async function(req,res){
     let id = req.params.shipmentId
     const shipment = await db.collection('shipments').doc(id).get()
@@ -82,8 +91,27 @@ router.get('/:shipmentId', async function(req,res){
         .json(shipment.data()) 
 })
 
-// Delete a shipment
+/*
+Search for shipment data in firestore, 
+update in easyship.com and update the firestore with new data
+*/
+router.put('/:shipmentId', async function(req,res){
+    let id = req.params.shipmentId
+    data = req.body
+    const shipment = await db.collection('shipments').doc(id).get()
+    if (!shipment.exists){
+        res
+            .status(404)
+            .json({errorMessage:"Shipments doesn't exists"})
+    }
+    res.json(shipment.data())
 
+    // Todo: Update Functionality here
+})
+
+/*
+Delete a single shipment data from google firestore
+*/
 router.delete('/:shipmentId', async function(req,res){
     let id = req.params.shipmentId
     const shipment = await db.collection('shipments').doc(id).delete()
@@ -91,5 +119,21 @@ router.delete('/:shipmentId', async function(req,res){
         .status(204)
         .json({})
 })
+
+
+/*
+Delete all shipments data from google firestore
+*/
+router.delete('/', async function(req,res){
+    let id = req.params.shipmentId
+    const shipment = await db.collection('shipments').get()
+    shipment.forEach(async function(result){
+       await db.collection('shipments').doc(result.data().shipment.easyship_shipment_id).delete()
+    })
+    res
+        .status(204)
+        .json({})
+})
+
 
 module.exports = {router,app} 

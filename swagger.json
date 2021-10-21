@@ -1,0 +1,444 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Seller.NG",
+        "description": "",
+        "version": "1.0"
+    },
+    "produces": [
+        "application/json"
+    ],
+    "host": "",
+    "basePath": "/",
+    "paths": {
+        "/shipping": {
+            
+            "get": {
+                "tags": [
+                    "Shipping"
+                ],
+                "description": "Retrieve all shipments from firestore",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Shipping"
+                ],
+                "description": "Create a new Shipments from easyship.com and store the data to firestore",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "required": true,
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Payload for creating a new shipments",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Shipping"
+                        }
+                    }
+                ],
+                "examples":{
+                    "id":10
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "201": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Shipping"
+                ],
+                "description": "Delete all shipments from firestore",
+                "responses": {
+                    "204": {
+                        "description": "Deleted"
+                    }
+                }
+            }
+        },
+        "/shipping/{id}": {
+            "get": {
+                "tags": [
+                    "Shipping"
+                ],
+                "description": "Get a single shipment by Id from firestore",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Shipping"
+                ],
+                "description": "Delete a single shipments from firestore",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Deleted"
+                    }
+                }
+            }
+        },
+        "/payments": {
+            "get": {
+                "tags": [
+                    "Payment"
+                ],
+                "description": "Retrieve all shipments from firestore",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Payment"
+                ],
+                "description": "Create a new Shipments from easyship.com and store the data to firestore",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "required": true,
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Payload for creating a new shipments",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Payments"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "201": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/payments/{id}": {
+            "get": {
+                "tags": [
+                    "Payment"
+                ],
+                "description": "Get a single payment by Id from firestore",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        }
+    },
+    "definitions":
+    {
+        "Payments":{
+                "type":"object",
+                "properties":{
+                    "shipments":{
+                        "type":"array",
+                        "items":{
+                            "type":"object",
+                            "properties":{
+                                "easyship_shipment_id":{
+                                    "type":"string"
+                                },
+                                "courier_id":{
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+        },
+        "Shipping": {
+            "type": "object",
+            "properties": {
+                "origin_address": {
+                   "type": "object",
+                   "properties":{
+                    "line_1":{
+                        "type":"string"
+                    },
+                    "line_2":{
+                    "type":"string"
+                    }, 
+                    "state":{
+                        "type":"string"
+                    },
+                    "city":{
+                        "type":"string"
+                    },
+                    "postal_code":{
+                        "type":"string"
+                    },
+                    "country_alpha2":{
+                        "type":"string"
+                    },
+                    "contact_name":{
+                        "type":"string"
+                    }, 
+                    "company_name":{
+                        "type":"string"
+                    },
+                    "contact_phone":{
+                        "type":"string"
+                    },
+                    "contact_email":{
+                        "type":"string"
+                    }
+                   }
+                },
+                "sender_address": {
+                    "type": "object",
+                    "properties":{
+                        "line_1":{
+                            "type":"string"
+                        },
+                        "line_2":{
+                        "type":"string"
+                        }, 
+                        "state":{
+                            "type":"string"
+                        },
+                        "city":{
+                            "type":"string"
+                        },
+                        "postal_code":{
+                            "type":"string"
+                        },
+                        "country_alpha2":{
+                            "type":"string"
+                        },
+                        "contact_name":{
+                            "type":"string"
+                        }, 
+                        "company_name":{
+                            "type":"string"
+                        },
+                        "contact_phone":{
+                            "type":"string"
+                        },
+                        "contact_email":{
+                            "type":"string"
+                        }
+                    }
+                },
+                "return_address": {
+                    "type": "object",
+                    "properties":{
+                        "line_1":{
+                            "type":"string"
+                        },
+                        "line_2":{
+                        "type":"string"
+                        }, 
+                        "state":{
+                            "type":"string"
+                        },
+                        "city":{
+                            "type":"string"
+                        },
+                        "postal_code":{
+                            "type":"string"
+                        },
+                        "country_alpha2":{
+                            "type":"string"
+                        },
+                        "contact_name":{
+                            "type":"string"
+                        }, 
+                        "company_name":{
+                            "type":"string"
+                        },
+                        "contact_phone":{
+                            "type":"string"
+                        },
+                        "contact_email":{
+                            "type":"string"
+                        }
+                    }
+                },
+                "destination_address": {
+                    "type": "object",
+                    "properties":{
+                        "line_1":{
+                            "type":"string"
+                        },
+                        "line_2":{
+                        "type":"string"
+                        }, 
+                        "state":{
+                            "type":"string"
+                        },
+                        "city":{
+                            "type":"string"
+                        },
+                        "postal_code":{
+                            "type":"string"
+                        },
+                        "country_alpha2":{
+                            "type":"string"
+                        },
+                        "contact_name":{
+                            "type":"string"
+                        }, 
+                        "company_name":{
+                            "type":"string"
+                        },
+                        "contact_phone":{
+                            "type":"string"
+                        },
+                        "contact_email":{
+                            "type":"string"
+                        }
+                    }
+                },
+                "parcels":{
+                    "type":"array",
+                    "items":{
+                        "type":"object",
+                        "properties":{
+                            "total_actual_weight":{
+                                "type":"number"
+                            },
+                            "box":{
+                                "type":"object",
+                                "properties":{
+                                   "slug":{
+                                       "type":null
+
+                                   },
+                                   "length":{
+                                    "type":"number"
+                                   },
+                                   "width":{
+                                    "type":"number"
+                                    },
+                                    "height":{
+                                        "type":"number"
+                                    }
+                                }
+                            },
+                            "items":{
+                                "type":"array",
+                                "items":{
+                                    "type":"object",
+                                    "properties":{
+                                        "description":{
+                                            "type":"string"
+                                        },
+                                        "category":{
+                                            "type":"string"
+                                        },
+                                        "sku":{
+                                            "type":"string"
+                                        },
+                                        "quantity":{
+                                            "type":"number"
+                                        },
+                                        "dimensions":{
+                                            "type":"object",
+                                            "properties":{
+                                                "length":{
+                                                    "type":"number"
+                                                   },
+                                                   "width":{
+                                                    "type":"number"
+                                                    },
+                                                    "height":{
+                                                        "type":"number"
+                                                    }
+                                            }
+                                        },
+                                        "actual_weight":{
+                                            "type":"number"
+                                        },
+                                        "declared_currency":{
+                                            "type":"string"
+                                        },
+                                        "declared_customs_value":{
+                                            "type":"number"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "81a8d903-514a-42ed-b8d3-819f003f1db2",
-		"name": "Seller.NG",
+		"_postman_id": "32defe59-fbbd-4fce-a937-600a907399c6",
+		"name": "Seller.NG Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -71,7 +71,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/shipping/ESUS10087756",
+							"raw": "http://localhost:8081/shipping/ESUS10087757",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -79,7 +79,7 @@
 							"port": "8081",
 							"path": [
 								"shipping",
-								"ESUS10087756"
+								"ESUS10087757"
 							]
 						}
 					},
@@ -108,10 +108,19 @@
 				{
 					"name": "Update Shipment",
 					"request": {
-						"method": "GET",
+						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8081/shipping/ESUS10087757",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"shipping",
+								"ESUS10087757"
+							]
 						}
 					},
 					"response": []
@@ -129,7 +138,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"shipments\": [\n    {\n      \"easyship_shipment_id\": \"ESUS10087756\",\n      \"courier_id\": \"3da5e847-c889-46c2-aaac-ec6d6f70f5c0\"\n    }\n  ]\n}",
+							"raw": "{\n  \"shipments\": [\n    {\n      \"easyship_shipment_id\": \"ESUS10087757\",\n      \"courier_id\": \"3da5e847-c889-46c2-aaac-ec6d6f70f5c0\"\n    }\n  ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -176,7 +185,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/payments/ESUS10087756",
+							"raw": "http://localhost:8081/payments/ESUS10087757",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -184,7 +193,7 @@
 							"port": "8081",
 							"path": [
 								"payments",
-								"ESUS10087756"
+								"ESUS10087757"
 							]
 						}
 					},
@@ -226,15 +235,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8081/shipping/quotes",
+					"raw": "http://localhost:8081/rates",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8081",
 					"path": [
-						"shipping",
-						"quotes"
+						"rates"
 					]
 				},
 				"description": "Get Shipping Rates\n"

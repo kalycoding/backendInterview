@@ -4,9 +4,9 @@
 
 This project requires the following modules/libraries, the project is running on expressjs, google fire-store 
 
-* [`Node Js`](https://nodejs.com)
+* [Node Js](https://nodejs.com) latest Version
 * Google Cloud Service Account Key, it can be obtained from [`Google Cloud Platform`], download the key.json file and place it the project root directory
-* Im using [easyship`](https://easyship.com/) for my shipping API. They have good documentation services
+* Im using [easyship](https://easyship.com/) for my shipping API. They have good documentation services
 
 
 ## Installation

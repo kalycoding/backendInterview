@@ -11,6 +11,25 @@
     "host": "",
     "basePath": "/",
     "paths": {
+        "/rates": {
+            "get": {
+                "tags": [
+                    "Rates"
+                ],
+                "description": "Get Shipment Rates from easyship.com",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
         "/shipping": {
             
             "get": {

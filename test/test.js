@@ -11,7 +11,6 @@ Unit testing the routes and controllers using mochai
 describe("Testing the Shipping Endpoints", function(){
   it("testing", function(){
     var answer = 43;
-
     expect(answer).to.equal(43);
   })
 })
